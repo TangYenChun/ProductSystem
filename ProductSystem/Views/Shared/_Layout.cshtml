@@ -1,10 +1,16 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ProductSystem</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/vue/vue.min.js"></script>
+    <script src="~/bootstrap-vue/bootstrap-vue.min.js"></script>
+    <script src="~/bootstrap-vue/bootstrap-vue-icons.min.js"></script>
+    <link href="~/bootstrap-vue/bootstrap-vue.min.css" rel="stylesheet" />
+    <link href="~/bootstrap-vue/bootstrap-vue-icons.min.css rel="stylesheet" />
+    <link href="~/toastr.js/toastr.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -42,6 +48,8 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/axios/axios.min.js"></script>
+    <script src="~/toastr.js/toastr.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

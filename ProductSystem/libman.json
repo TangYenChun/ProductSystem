@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "axios@0.27.2",
+      "destination": "wwwroot/axios/"
+    },
+    {
+      "library": "vue@2.6.12",
+      "destination": "wwwroot/vue/"
+    },
+    {
+      "library": "bootstrap-vue@2.21.2",
+      "destination": "wwwroot/bootstrap-vue/"
+    },
+    {
+      "library": "toastr.js@2.1.4",
+      "destination": "wwwroot/toastr.js/"
+    }
+  ]
+}

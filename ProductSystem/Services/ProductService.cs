@@ -4,6 +4,7 @@ using ProductSystem.Models.Dto;
 using ProductSystem.Repositories.Interface;
 using ProductSystem.Services.Interface;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProductSystem.Services
@@ -63,16 +64,27 @@ namespace ProductSystem.Services
             }
         }
 
-        public APIResult GetAllCategoryName()
+        public IEnumerable<GetAllCategoryNameDto> GetAllCategoryName()
         {
-            var categoryNameList = _repository.GetAll<Category>().Select(x => x.CategoryName).ToList();
-            return new APIResult(APIStatus.Success, string.Empty, categoryNameList);
+            return _repository.GetAll<Category>().Select(x => new GetAllCategoryNameDto
+            {
+                CategoryName = x.CategoryName
+            }).ToList();
+            
         }
 
-        public APIResult GetAllProduct()
+        public IEnumerable<GetAllProductDto> GetAllProduct()
         {
-            var productList = _repository.GetAll<Product>().ToList();
-            return new APIResult(APIStatus.Success, string.Empty, productList);
+            return _repository.GetAll<Product>().Select(x => new GetAllProductDto
+            {
+                ProductId = x.ProductId,
+                ProductName = x.ProductName,
+                CategoryName = _repository.GetAll<Category>().First(y => y.CategoryId == x.CategoryId).CategoryName,
+                QuantityPerUnit = x.QuantityPerUnit,
+                UnitPrice = (decimal)x.UnitPrice,
+                UnitsInStock = (short)x.UnitsInStock,
+                Discontinued = x.Discontinued
+            });
         }
 
         public bool IsProductNameExist(string name)
